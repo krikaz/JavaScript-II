@@ -27,13 +27,13 @@ const counterFactory = () => {
   // `decrement` should decrement the counter variable and return it.
   let ob = {};
   let count3 = 0;
-  return () => {
-    ob.increment = () => ++count3;
-    ob.decrement = () => --count3;
-    return ob;
-  };
+  ob.increment = () => ++count3;
+  ob.decrement = () => --count3;
+  return ob;
 };
 
 let newCounter3 = counterFactory();
-console.log(newCounter3());
-console.log(newCounter3());
+console.log(newCounter3.increment());
+console.log(newCounter3.increment());
+console.log(newCounter3.increment());
+console.log(newCounter3.decrement());
