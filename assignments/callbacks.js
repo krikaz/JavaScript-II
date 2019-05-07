@@ -56,12 +56,28 @@ function removeDuplicates(array, cb) {
   // removeDuplicates removes all duplicate values from the given array.
   // Pass the duplicate free array to the callback function.
   // Do not mutate the original array.
-  let unique = [];
-  let arrayCopy = array;
-  arrayCopy.forEach(function(item) {
-    if (!unique.includes(item)) {
-      unique.push(item);
+
+  const reducer = (accumulator, currentValue) => {
+    if (accumulator.indexOf(currentValue) === -1) {
+      accumulator.push(currentValue);
     }
-  });
-  return cb(unique);
+    return accumulator;
+  };
+  
+  return cb(array.reduce(reducer, []));
+
 }
+
+
+
+/* const reducer = (accumulator, currentValue) => {
+  if (accumulator.indexOf(currentValue) === -1) {
+    accumulator.push(currentValue);
+  }
+  return accumulator;
+};
+
+let myArray = [1,2,3,3,5];
+let myOrderedArray = myArray.reduce(reducer, []);
+console.log(myArray);
+console.log(myOrderedArray); */
