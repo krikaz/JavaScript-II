@@ -488,13 +488,29 @@ runners.filter(function(item) {
 let ticketPriceTotal = [];
 const reducer = (accumulator, currentValue) => accumulator + currentValue.donation;
 ticketPriceTotal.push(runners.reduce(reducer, 0));
-console.log(ticketPriceTotal);
+// console.log(ticketPriceTotal);
 
 // ==== Challenge 5: Be Creative ====
 // Now that you have used .forEach(), .map(), .filter(), and .reduce().  I want you to think of potential problems you could solve given the data set and the 5k fun run theme.  Try to create and then solve 3 unique problems using one or many of the array methods listed above.
 
 // Problem 1
+// Get a list of the people with shirt size 'S' that gave more than 200.
+let p1 = [];
+runners.filter(function(item) {
+  if (item.shirt_size === 'S' && item.donation > 200) {
+    p1.push(item);
+  }
+});
+// console.log(p1);
 
 // Problem 2
+// Log all `name from company gave donation`
+runners.map(function(item) {
+  //console.log(`${item.first_name} from ${item.company_name} gave ${item.donation}`)
+});
 
 // Problem 3
+// Get the mean donation
+let p3 = 0;
+p3 = runners.reduce(reducer, 0) / runners.length;
+console.log(`The average donation is ${p3}`);
